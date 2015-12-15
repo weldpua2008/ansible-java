@@ -41,14 +41,14 @@
 
 - include: install-openjdk-redhat.yml
 #  when: "ansible_os_family == 'Debian'"
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'  and java_type == 'openjdk'
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' and java_type == 'openjdk'
   tags:
     - java
     - openjdk
 
 - include: install-jdk-redhat.yml
 #  when: "ansible_os_family == 'Debian'"
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'  and java_type == 'jdk'
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' and java_type == 'jdk'
   tags:
     - java
     - oracle-java
@@ -65,8 +65,8 @@
 #  tags:
 #    - java
 #
-- include: install-freebsd.yml
-  when: ansible_os_family == 'FreeBSD'
+- include: install-openjdk-freebsd.yml
+  when: ansible_os_family == 'FreeBSD' and java_type == 'openjdk'
   tags:
     - java
     - oracle-java
