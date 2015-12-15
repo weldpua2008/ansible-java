@@ -1,0 +1,11 @@
+#Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!
+- name: install selinux bindings
+  yum: name=libselinux-python state=present
+
+- name : RHEL install maven and ant
+  yum:
+    name={{item}}
+    state=present
+  with_items:
+    - maven
+    - ant

@@ -1,0 +1,8 @@
+---
+# Default versions include:
+#   - java
+#   - java-1.6.0-openjdk
+#   - java-1.7.0-openjdk
+jdk_version:      1.8.0_66
+jdk_tarball_file: jdk-8u66-linux-x64
+jdk_tarball_url:  http://download.oracle.com/otn-pub/java/jdk/8u66-b17/jdk-8u66-linux-x64
