@@ -62,7 +62,6 @@ function main(){
     test_playbook_syntax
     test_playbook
     extra_tests
-
 }
 
 ################ run #########################
