@@ -7,6 +7,8 @@ SUDO_OPTION="--sudo"
 OS_TYPE=${1:-}
 OS_VERSION=${2:-}
 ANSIBLE_VERSION=${3:-}
+JDK_TYPE=${4:-"open"}
+JDK_VERSION=${5:-"7"}
 ANSIBLE_VAR=""
 ANSIBLE_INVENTORY="tests/test-inventory"
 ANSIBLE_PLAYBOOk="tests/test.yml"
@@ -26,7 +28,7 @@ fi
 #
 #fi
 
-ANSIBLE_VAR=""
+ANSIBLE_VAR="${JDK_TYPE}=${JDK_VERSION}"
 ANSIBLE_EXTRA_VARS=""
 if [ "${ANSIBLE_VAR}x" != "x" ];then
     ANSIBLE_EXTRA_VARS=" -e \"${ANSIBLE_VAR}\" "

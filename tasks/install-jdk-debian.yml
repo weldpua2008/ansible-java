@@ -12,14 +12,14 @@
    apt_repository: repo='ppa:webupd8team/java' state=present update_cache=yes
 
  - name: Autoaccept license for Oracle Java
-   action: shell echo oracle-java{{ oraclejava_version }}-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+   action: shell echo oracle-java{{ oraclejdk_version }}-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 
 # - name: Update APT package cache
 #   action: apt update_cache=yes
 #   when: apt_state == 'present'
 
  - name: Install Oracle Java
-   action: apt pkg=oracle-java{{ oraclejava_version }}-installer state=present
+   action: apt pkg=oracle-java{{ oraclejdk_version }}-installer state=present
 
  - name: Set Java Env
-   action: apt pkg=oracle-java{{ oraclejava_version }}-set-default state=present
+   action: apt pkg=oracle-java{{ oraclejdk_version }}-set-default state=present

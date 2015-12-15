@@ -1,6 +1,6 @@
 # Setup for Vagrant
-- fail: msg="Please define  oraclejava_version or openjdk_version"
-  when: openjdk_version is not defined and oraclejava_version is not defined
+- fail: msg="Please define  oraclejdk_version or openjdk_version"
+  when: openjdk_version is not defined and oraclejdk_version is not defined
   tags:
     - java
     - oracle-java
@@ -8,7 +8,7 @@
 
 - set_fact:
     java_type="jdk"
-  when: oraclejava_version is defined
+  when: oraclejdk_version is defined
   tags:
     - java
     - oracle-java

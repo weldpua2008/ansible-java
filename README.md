@@ -10,7 +10,7 @@ Manages installation of Java JREs and JDKs. It supports both OpenJDK and Oracle 
 
 ## Configure default Java implementation.
 Choices:
-- oraclejava_version
+- oraclejdk_version
 - openjdk_version
 
 #### openjdk_version
@@ -19,7 +19,7 @@ Choices:
     - 8
     - 9
 
-#### oraclejava_version
+#### oraclejdk_version
     - 6
     - 7
     - 8
