@@ -9,6 +9,7 @@
   args:
     creates: "{{ java_download_path }}/jdk-tarball-{{ jdk_version }}"
     chdir:   "{{ java_download_path }}"
+  changed_when: false
 
 - name: mkdir for Java
   file:
@@ -17,6 +18,7 @@
     owner: root
     group: root
     mode: "u=rwx,go=rx"
+  changed_when: false
 
 - name: install JDK
   unarchive:
@@ -26,3 +28,4 @@
     group: root
     mode: "go-w"
     copy: no
+  changed_when: false
