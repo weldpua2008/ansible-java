@@ -1,57 +1,23 @@
-# Setup for Vagrant
-- fail: msg="Please define  oraclejdk_version or openjdk_version"
-  when: openjdk_version is not defined and oraclejdk_version is not defined
-  tags:
-    - java
-    - oracle-java
-    - openjdk
-
-- set_fact:
-    java_type="jdk"
-  when: oraclejdk_version is defined
-  tags:
-    - java
-    - oracle-java
-
-- set_fact:
-    java_type="openjdk"
-  when: openjdk_version is defined
-  tags:
-    - java
-    - openjdk
-
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_os_family }}.yml"
   tags:
     - java
-    - oracle-java
-    - openjdk
+    - jdk
 
-- include: install-openjdk-debian.yml
-  when: ansible_os_family == 'Debian' and java_type == 'openjdk'
-  tags:
-    - java
-    - openjdk
 
 - include: install-jdk-debian.yml
-  when: ansible_os_family == 'Debian' and java_type == 'jdk'
+  when: ansible_os_family == 'Debian'
   tags:
     - java
-    - oracle-java
+    - jdk
 
-- include: install-openjdk-redhat.yml
-#  when: "ansible_os_family == 'Debian'"
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' and java_type == 'openjdk'
-  tags:
-    - java
-    - openjdk
 
 - include: install-jdk-redhat.yml
 #  when: "ansible_os_family == 'Debian'"
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' and java_type == 'jdk'
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
   tags:
     - java
-    - oracle-java
+    - jdk
 
 #
 #- include: install-fedora.yml
@@ -65,22 +31,20 @@
 #  tags:
 #    - java
 #
-- include: install-openjdk-freebsd.yml
-  when: ansible_os_family == 'FreeBSD' and java_type == 'openjdk'
+- include: install-jdk-freebsd.yml
+  when: ansible_os_family == 'FreeBSD'
   tags:
     - java
-    - oracle-java
-    - openjdk
+    - jdk
 
-- include: install-openjdk-gentoo.yml
-  when: ansible_os_family == 'Gentoo '  and java_type == 'openjdk'
+- include: install-jdk-gentoo.yml
+  when: ansible_os_family == 'Gentoo '
   tags:
     - java
-    - oracle-java
+    - jdk
 
 - name: set JAVA_HOME...
   template: src=java.sh.j2 dest='/etc/profile.d/java.sh' mode=644
   tags:
     - java
-    - oracle-java
-    - openjdk
+    - jdk

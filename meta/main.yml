@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: "Valeriy Solovyov"
-  description: "Ansible role for installing Java or OpenJDK"
+  description: "Ansible role for installing Oracle Java"
   license: "MIT"
   min_ansible_version: 1.6
   platforms:

@@ -1,6 +1,4 @@
 
 # use java
-#oraclejdk_version: 7
-#openjdk_version: 7
-openjdk_version_subversion: 0
+oraclejdk_version: 7
 jdk_version_subversion: 0
