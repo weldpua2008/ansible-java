@@ -2,10 +2,10 @@
 - name: install selinux bindings
   yum: name=libselinux-python state=present
 
-- name : RHEL install maven and ant
-  yum:
-    name={{item}}
-    state=present
-  with_items:
-    - maven
-    - ant
+#- name : RHEL install maven and ant
+#  yum:
+#    name={{item}}
+#    state=present
+#  with_items:
+#    - maven
+#    - ant
