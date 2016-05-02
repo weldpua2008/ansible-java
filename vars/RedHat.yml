@@ -2,4 +2,4 @@
 
 jdk_version:      1.8.0_66
 jdk_tarball_file: jdk-8u66-linux-x64
-jdk_tarball_url:  http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jre-8u60-linux-x64.rpm
+jdk_tarball_url:  http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jre-8u60-linux-x64.tar.gz
