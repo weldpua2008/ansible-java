@@ -5,7 +5,7 @@
 #
 
 - name: get JDK tarball (as tar.gz file)
-  command: curl -L  -H 'Cookie:oraclelicense=accept-securebackup-cookie'  -o {{ jdk_tarball_file }}.tar.gz  {{ jdk_tarball_url }}.tar.gz
+  command: "curl -L  -H 'Cookie:oraclelicense=accept-securebackup-cookie'  -o {{ jdk_tarball_file }}.tar.gz  {{ jdk_tarball_url }}.tar.gz"
   args:
     creates: "{{ java_download_path }}/jdk-tarball-{{ jdk_version }}"
     chdir:   "{{ java_download_path }}"
