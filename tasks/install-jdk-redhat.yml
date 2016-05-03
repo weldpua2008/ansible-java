@@ -10,12 +10,14 @@
 
 - name: Download JDK
   shell: 'wget -O /opt/jdk.tar.gz --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "{{jdk_tarball_url}}"'
+  changed_when: false
 
 - name: Create /opt/java
   file: path=/opt/java/{{ oraclejdk_version }} state=directory
 
 - name: Extract JDK
   shell: tar xzf /opt/jdk.tar.gz -C /opt/java/{{ oraclejdk_version }} --strip-components=1
+  changed_when: false
 
 #- name : RHEL install maven and ant
 #  yum:
@@ -28,6 +30,7 @@
 - name: update Alternatives
   shell: "{{item}}"
   ignore_errors: yes
+  changed_when: false
   with_items:
     - "alternatives --install /usr/bin/java java /opt/java/{{ oraclejdk_version }}/bin/java 2"
     - "alternatives --install /usr/bin/jar jar /opt/java/{{ oraclejdk_version }}/bin/jar 2"
